@@ -6,10 +6,8 @@ ls:
   .git-hooks:
     .dir: lowercase
     .*: kebab-case
-  .cicd:
-    .dir: lowercase
-    .*: kebab-case
 
 ignore:
   - .git
+  - "**/.terraform"
   - "**/*.bak"

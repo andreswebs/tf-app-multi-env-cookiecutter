@@ -5,7 +5,14 @@ variable "aws_region" {
 
 provider "aws" {
   region = var.aws_region
-  # assume_role {
-  #   role_arn = "" ## set environment-specific role arn here
-  # }
+{%- if cookiecutter.iam_role_arn_dev %}
+
+  assume_role {
+    role_arn = "{{ cookiecutter.iam_role_arn_dev }}"
+  }
+{%- endif %}
+
+  default_tags {
+    tags = local.default_tags
+  }
 }
